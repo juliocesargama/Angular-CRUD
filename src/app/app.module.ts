@@ -9,10 +9,12 @@ import { CommonModule } from '@angular/common';
 import {HttpClientModule} from '@angular/common/http';
 import {ReactiveFormsModule} from '@angular/forms';
 import {ModalModule} from "ngx-bootstrap/modal";
+import { PersonsComponent } from './components/persons/persons.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PersonsComponent
   ],
   imports: [
     BrowserModule,

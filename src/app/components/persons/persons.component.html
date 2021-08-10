@@ -1,0 +1,42 @@
+<div class="container p-5">
+    <div class="row">
+        <div class="col-6 border border-light rounded p-5 shadow" *ngIf="form">
+            <h6>{{formTitle}}</h6>
+            <hr/>
+            <form [formGroup]="form" (ngSubmit)="SendForm()">
+                <div class="form-group">
+                    <!-- Inputs do formulário -->
+                    <label>Nome</label>
+                    <input type="text" class="form-control form-control-sm" formControlName="personName"/>
+                </div>
+
+                <div class="form-group">
+                    <label>Sobrenome</label>
+                    <input type="text" class="form-control form-control-sm" formControlName="personLastName"/>
+                </div>
+
+                <div class="form-group">
+                    <label>Idade</label>
+                    <input type="number" class="form-control form-control-sm" formControlName="personAge"/>
+                </div>
+
+                <div class="form-group">
+                    <label>Profissão</label>
+                    <input type="text" class="form-control form-control-sm" formControlName="personProfession"/>
+                </div>
+                <!--- Botões -->
+                <div class="container">
+                    <div class="row">
+                        <div>
+                            <button type="submit" class="btn btn-sm btn-outline-secondary">Salvar</button>
+                        </div>
+                            <div class="pl-1">
+                                <button type="button" class="btn btn-sm btn-light">Voltar</button>
+                            </div>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
