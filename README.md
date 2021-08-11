@@ -1,4 +1,4 @@
-# API - Cadastro de Pessoas (CRUD)
+# Aplicação Web - Cadastro de Pessoas (CRUD)
 #### Status: Em andamento.
 Projeto de uma aplicação web para cadastro de pessoas, incluindo nome, sobrenome, idade e profissão, no qual é possível adicionar, alterar, excluir e consultar os dados de pessoas, que estão disponibilizados via API do [Projeto de Back-End com .Net Core](https://github.com/juliocesargama/API-DotNet-CRUD).
 
