@@ -26,15 +26,15 @@ export class PersonsService {
    return this.http.get<Person>(apiurl);
   }
 
-  SavePerson(person: Person): Observable<any>{
+  PostPerson(person: Person): Observable<any>{
     return this.http.post<Person>(this.url, person, httpOptions);
   }
 
-  UpdatePerson(person: Person): Observable<any>{
+  PutPerson(person: Person): Observable<any>{
     return this.http.put<Person>(this.url, person, httpOptions);
   }
 
-  Delete(personID: number): Observable<any>{
+  DeletePerson(personID: number): Observable<any>{
     const apiurl = `${this.url}/${personID}`;
     return this.http.delete<number>(apiurl, httpOptions);
   }

@@ -1,15 +1,16 @@
 # Aplicação Web - Cadastro de Pessoas (CRUD)
-#### Status: Em andamento.
+#### Status: Concluído.
 Projeto de uma aplicação web para cadastro de pessoas, incluindo nome, sobrenome, idade e profissão, no qual é possível adicionar, alterar, excluir e consultar os dados de pessoas, que estão disponibilizados via API do [Projeto de Back-End com .Net Core](https://github.com/juliocesargama/API-DotNet-CRUD).
 
 ## Tecnologias:
 - Angular 12;
-- Ngx Bootstrap;
+- Ngx Bootstrap;/
 - Vercel, para deploy da aplicação na nuvem.
 
 ## Características:
 - Routing Component;
-- FormGroup e FormControl.
+- FormGroup e FormControl;
+- Modals.
 
 ## Instruções para a instalação:
 Não será necessária instalação, o projeto em funcionamento encontra-se neste [Link](https://angular-crud-jcgama.vercel.app/persons).

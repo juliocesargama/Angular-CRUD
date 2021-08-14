@@ -1,38 +1,78 @@
-<div class="container p-5">
-    <div class="row">
-        <div class="col-6 border border-light rounded p-5 shadow" *ngIf="form">
-            <h6>{{formTitle}}</h6>
-            <hr/>
-            <form [formGroup]="form" (ngSubmit)="SendForm()">
+<div class="container p-5" *ngIf="tableVisibility">
+    <!-- Tabela dos dados -->
+    <div class="border border-light rounded p-2">
+        <div class="">
+            <button type="button" class="btn btn-sm btn-secondary" (click)="ShowForm()">Nova Pessoa</button>
+        </div>
+
+        <hr />
+
+        <table class="table table-striped table-hover table-sm" *ngIf="persons">
+            <!-- Cabeçalho da tabela -->
+            <tr class="thead-light">
+                <th>Nome</th>
+                <th>Sobrenome</th>
+                <th>Idade</th>
+                <th>Profissão</th>
+                <th>Ações</th>
+
+            </tr>
+            <!-- conteúdo -->
+            <tr *ngFor="let person of persons">
+                <td>{{person.personName}}</td>
+                <td>{{person.personLastName}}</td>
+                <td>{{person.personAge}}</td>
+                <td>{{person.personProfession}}</td>
+                <td>
+                    <button type="button" class="btn btn-sm btn-outline-info"
+                        (click)="UpdatePerson(person.personID)">Alterar</button>
+                </td>
+                <td>
+                    <button type="button" class="btn btn-sm btn-outline-danger" 
+                    (click)="ShowDeleteModal(person.personID, person.personName, 
+                    person.personLastName, contentModal)">Excluir</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<div class="container p-5 text-center" *ngIf="formVisibility">
+    <!-- Formulário de Cadastro -->
+    <div class="container-sm text-center">
+        <div class="border border-light rounded p-5 shadow" *ngIf="form">
+            <h6 class="text-center strong">{{formTitle}}</h6>
+            <hr />
+            <form [formGroup]="form" (ngSubmit)="SendPerson()">
                 <div class="form-group">
                     <!-- Inputs do formulário -->
-                    <label>Nome</label>
-                    <input type="text" class="form-control form-control-sm" formControlName="personName"/>
+                    <label>Nome:</label>
+                    <input type="text" class="form-control form-control-sm" formControlName="personName" />
                 </div>
 
                 <div class="form-group">
-                    <label>Sobrenome</label>
-                    <input type="text" class="form-control form-control-sm" formControlName="personLastName"/>
+                    <label>Sobrenome:</label>
+                    <input type="text" class="form-control form-control-sm" formControlName="personLastName" />
                 </div>
 
                 <div class="form-group">
-                    <label>Idade</label>
-                    <input type="number" class="form-control form-control-sm" formControlName="personAge"/>
+                    <label>Idade:</label>
+                    <input type="number" class="form-control form-control-sm" formControlName="personAge" />
                 </div>
 
                 <div class="form-group">
-                    <label>Profissão</label>
-                    <input type="text" class="form-control form-control-sm" formControlName="personProfession"/>
+                    <label>Profissão:</label>
+                    <input type="text" class="form-control form-control-sm" formControlName="personProfession" />
                 </div>
                 <!--- Botões -->
                 <div class="container">
-                    <div class="row">
-                        <div>
+                    <div class="text-center p-2">
+                        <div class="row p-2">
                             <button type="submit" class="btn btn-sm btn-outline-secondary">Salvar</button>
                         </div>
-                            <div class="pl-1">
-                                <button type="button" class="btn btn-sm btn-light">Voltar</button>
-                            </div>
+                        <div class="row p-2">
+                            <button type="button" class="btn btn-sm btn-light" (click)="HideForm()">Voltar</button>
+                        </div>
                     </div>
                 </div>
 
@@ -40,3 +80,22 @@
         </div>
     </div>
 </div>
+
+<!-- Modal -->
+<ng-template #contentModal>
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">Confirmação de Exclusão</h4>
+      <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      Deseja mesmo excluir {{personName}} {{personLastName}}?
+    </div>
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-light" (click)="modalRef.hide()">Não</button>
+        <button type="button" class="btn btn-outline-danger" (click)="DeletePerson(personID)">Sim</button>
+
+    </div>
+  </ng-template>
