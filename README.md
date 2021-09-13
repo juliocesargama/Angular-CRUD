@@ -13,7 +13,19 @@ Projeto de uma aplicação web para cadastro de pessoas, incluindo nome, sobreno
 - Modals.
 
 ## Instruções para a instalação:
-Não será necessária instalação, o projeto em funcionamento encontra-se neste [Link](https://angular-crud-jcgama.vercel.app).
+
+Para instalar as dependências, no terminal:
+
+```sh
+npm i
+```
+
+Para iniciar o projeto:
+```sh
+ng serve -o
+```
+
+O projeto em funcionamento também encontra-se neste [Link](https://angular-crud-jcgama.vercel.app).
 
 
 ## Referências:
