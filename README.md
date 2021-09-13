@@ -4,11 +4,11 @@ Projeto de uma aplicação web para cadastro de pessoas, incluindo nome, sobreno
 
 ## Tecnologias:
 - Angular 12;
-- Ngx Bootstrap;/
+- Ngx Bootstrap;
 - Vercel, para deploy da aplicação na nuvem.
 
 ## Características:
-- Routing Component;
+- Routing Module;
 - FormGroup e FormControl;
 - Modals.
 
