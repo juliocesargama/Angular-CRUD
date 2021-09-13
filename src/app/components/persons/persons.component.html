@@ -19,18 +19,18 @@
             </tr>
             <!-- conteúdo -->
             <tr *ngFor="let person of persons">
-                <td>{{person.personName}}</td>
-                <td>{{person.personLastName}}</td>
-                <td>{{person.personAge}}</td>
-                <td>{{person.personProfession}}</td>
+                <td>{{person.name}}</td>
+                <td>{{person.lastName}}</td>
+                <td>{{person.age}}</td>
+                <td>{{person.profession}}</td>
                 <td>
                     <button type="button" class="btn btn-sm btn-outline-info"
-                        (click)="UpdatePerson(person.personID)">Alterar</button>
+                        (click)="UpdatePerson(person.id)">Alterar</button>
                 </td>
                 <td>
                     <button type="button" class="btn btn-sm btn-outline-danger" 
-                    (click)="ShowDeleteModal(person.personID, person.personName, 
-                    person.personLastName, contentModal)">Excluir</button>
+                    (click)="ShowDeleteModal(person.id, person.name, 
+                    person.lastName, contentModal)">Excluir</button>
                 </td>
             </tr>
         </table>
@@ -90,12 +90,12 @@
       </button>
     </div>
     <div class="modal-body">
-      Deseja mesmo excluir {{personName}} {{personLastName}}?
+      Deseja mesmo excluir {{name}} {{lastName}}?
     </div>
 
     <div class="modal-footer">
         <button type="button" class="btn btn-light" (click)="modalRef.hide()">Não</button>
-        <button type="button" class="btn btn-outline-danger" (click)="DeletePerson(personID)">Sim</button>
+        <button type="button" class="btn btn-outline-danger" (click)="DeletePerson(id)">Sim</button>
 
     </div>
   </ng-template>

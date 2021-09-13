@@ -15,9 +15,9 @@ export class PersonsComponent implements OnInit {
   formTitle: string;
   persons: Person[];
 
-  personID: number;
-  personName: string;
-  personLastName: String;
+  id: number;
+  name: string;
+  lastName: String;
 
   tableVisibility: boolean = true;
   formVisibility: boolean = false;
@@ -41,10 +41,10 @@ export class PersonsComponent implements OnInit {
     this.formTitle = 'Nova Pessoa';
 
     this.form = new FormGroup({
-      personName: new FormControl(null),
-      personLastName: new FormControl(null),
-      personAge: new FormControl(null),
-      personProfession: new FormControl(null)
+      name: new FormControl(null),
+      lastName: new FormControl(null),
+      age: new FormControl(null),
+      profession: new FormControl(null)
     });
   }
 
@@ -56,7 +56,7 @@ export class PersonsComponent implements OnInit {
   SendPerson(): void {
     const person: Person = this.form.value;
 
-    if (person.personID > 0) {
+    if (person.id > 0) {
       //Atualização
       this.personsService.PutPerson(person).subscribe(result => {
         this.formVisibility = false;
@@ -88,28 +88,28 @@ export class PersonsComponent implements OnInit {
     this.formVisibility = true;
 
     this.personsService.GetById(personID).subscribe(result => {
-      this.formTitle = `Atualizar ${result.personName} ${result.personLastName}`;
+      this.formTitle = `Atualizar ${result.name} ${result.lastName}`;
 
       this.form = new FormGroup({
-        personID: new FormControl(result.personID),
-        personName: new FormControl(result.personName),
-        personLastName: new FormControl(result.personLastName),
-        personAge: new FormControl(result.personAge),
-        personProfession: new FormControl(result.personProfession)
+        personID: new FormControl(result.id),
+        personName: new FormControl(result.name),
+        personLastName: new FormControl(result.lastName),
+        personAge: new FormControl(result.age),
+        personProfession: new FormControl(result.profession)
       });
     });
   }
 
-  ShowDeleteModal(personID: number, personName: string, 
-    personLastName: string, modalContent: TemplateRef<any>): void{
+  ShowDeleteModal(id: number, name: string, 
+    lastName: string, modalContent: TemplateRef<any>): void{
       this.modalRef = this.modalService.show(modalContent);
-      this.personID = personID;
-      this.personName = personName;
-      this.personLastName = personLastName;
+      this.id = id;
+      this.name = name;
+      this.lastName = lastName;
   }
 
-  DeletePerson(personID: number): void{
-    this.personsService.DeletePerson(personID).subscribe(result =>{
+  DeletePerson(id: number): void{
+    this.personsService.DeletePerson(id).subscribe(result =>{
       this.modalRef.hide();
       
       this.personsService.GetAll().subscribe(records =>{
