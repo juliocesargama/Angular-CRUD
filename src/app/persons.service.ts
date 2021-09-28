@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { Person } from './Person';
 
 const httpOptions = {
@@ -13,7 +14,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class PersonsService {
-  url = 'https://api-crud-jcgama.azurewebsites.net/api/persons';
+ private readonly url = `${environment.API}persons`;
 
   constructor(private http: HttpClient) { }
 
