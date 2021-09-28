@@ -83,19 +83,19 @@ export class PersonsComponent implements OnInit {
     }
   }
 
-  UpdatePerson(personID: number): void {
+  UpdatePerson(id: number): void {
     this.tableVisibility = false;
     this.formVisibility = true;
 
-    this.personsService.GetById(personID).subscribe(result => {
+    this.personsService.GetById(id).subscribe(result => {
       this.formTitle = `Atualizar ${result.name} ${result.lastName}`;
 
       this.form = new FormGroup({
-        personID: new FormControl(result.id),
-        personName: new FormControl(result.name),
-        personLastName: new FormControl(result.lastName),
-        personAge: new FormControl(result.age),
-        personProfession: new FormControl(result.profession)
+        id: new FormControl(result.id),
+        name: new FormControl(result.name),
+        lastName: new FormControl(result.lastName),
+        age: new FormControl(result.age),
+        profession: new FormControl(result.profession)
       });
     });
   }

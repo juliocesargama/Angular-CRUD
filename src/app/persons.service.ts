@@ -21,8 +21,8 @@ export class PersonsService {
     return this.http.get<Person[]>(this.url);
   }
 
-  GetById(personID: number): Observable<Person>{
-   const apiurl = `${this.url}/${personID}`;
+  GetById(id: number): Observable<Person>{
+   const apiurl = `${this.url}/${id}`;
    return this.http.get<Person>(apiurl);
   }
 
@@ -34,8 +34,8 @@ export class PersonsService {
     return this.http.put<Person>(this.url, person, httpOptions);
   }
 
-  DeletePerson(personID: number): Observable<any>{
-    const apiurl = `${this.url}/${personID}`;
+  DeletePerson(id: number): Observable<any>{
+    const apiurl = `${this.url}/${id}`;
     return this.http.delete<number>(apiurl, httpOptions);
   }
 }
